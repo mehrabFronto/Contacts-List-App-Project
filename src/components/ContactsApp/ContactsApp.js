@@ -3,14 +3,10 @@ import ContactForm from "../ContactForm/ContactForm";
 import ContactsList from "../ContactsList/ContactsList";
 import Header from "../Header/Header";
 import SelectedContact from "../SelectedContact/SelectedContact";
+import { toast } from "react-toastify";
 
 const ContactsApp = () => {
-   const [contacts, setContacts] = useState([
-      { id: 1, name: "folan1", email: "meharb@ex.com" },
-      { id: 2, name: "folan2", email: "ali@ex.com" },
-      { id: 3, name: "folan3", email: "karim@ex.com" },
-      { id: 4, name: "folan4", email: "saheb@ex.com" },
-   ]);
+   const [contacts, setContacts] = useState([]);
 
    const [selectedContact, setSelectedContact] = useState(undefined);
 
@@ -19,13 +15,37 @@ const ContactsApp = () => {
       setSelectedContact(contact);
    };
 
+   const addContactHander = (contact) => {
+      // add more datail to the new data
+      const newContact = {
+         ...contact,
+         id: new Date().getTime(),
+         createdAt: new Date().toISOString(),
+      };
+
+      // set new data
+      setContacts([...contacts, newContact]);
+
+      toast.success("contact successfully added");
+   };
+
+   const removeContactHandler = (id) => {
+      // filter the data
+      const filteredContacts = contacts.filter((c) => c.id !== id);
+      // set new data
+      setContacts(filteredContacts);
+
+      toast.success("contact successfully deleted");
+   };
+
    return (
       <>
          <Header />
-         <ContactForm />
+         <ContactForm onAddContact={addContactHander} />
          <ContactsList
             contacts={contacts}
             onSelect={selectContactHadnler}
+            onRemove={removeContactHandler}
          />
          {selectedContact && (
             <SelectedContact

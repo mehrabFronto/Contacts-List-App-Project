@@ -1,6 +1,6 @@
 import Contact from "../Contact/Contact";
 
-const ContactsList = ({ contacts, onSelect }) => {
+const ContactsList = ({ contacts, onSelect, onRemove }) => {
    // conditional rendering
    const renderContacts = () => {
       // if there is not any contacts => return a message . else return the list of contacts
@@ -16,6 +16,7 @@ const ContactsList = ({ contacts, onSelect }) => {
             key={c.id}
             contact={c}
             onSelect={onSelect}
+            onRemove={onRemove}
          />
       ));
    };

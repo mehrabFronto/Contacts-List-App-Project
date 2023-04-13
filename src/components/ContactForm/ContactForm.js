@@ -1,11 +1,14 @@
 import { useState } from "react";
 
-const ContactForm = () => {
+const ContactForm = ({ onAddContact }) => {
    // new user
    const [newContact, setNewContact] = useState({ name: "", email: "" });
 
    const submitHandler = (e) => {
       e.preventDefault();
+      // send the new data
+      onAddContact(newContact);
+      // clear the inputs
       setNewContact({ name: "", email: "" });
    };
 
