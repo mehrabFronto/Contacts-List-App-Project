@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import ContactForm from "../ContactForm/ContactForm";
 import ContactsList from "../ContactsList/ContactsList";
-import Header from "../Header/Header";
 import SelectedContact from "../SelectedContact/SelectedContact";
 import { toast } from "react-toastify";
 import { getAllContacts } from "../../services/getAllContactsService";
@@ -57,7 +56,6 @@ const ContactsApp = () => {
 
    return (
       <>
-         <Header />
          <ContactForm onAddContact={addContactHander} />
          <ContactsList
             contacts={contacts}
