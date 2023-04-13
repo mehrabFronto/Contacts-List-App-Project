@@ -1,7 +1,7 @@
-import ContactForm from "./components/ContactForm/ContactForm";
-import SelectedContact from "./components/SelectedContact/SelectedContact";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import SelectedContact from "./pages/SelectedContact/SelectedContact";
+import ContactForm from "./pages/ContactForm/ContactForm";
 
 const routes = [
    { path: "/contacts/:id", component: SelectedContact },

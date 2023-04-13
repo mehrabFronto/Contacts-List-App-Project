@@ -1,13 +1,30 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { addNewContact } from "../../services/addNewContactService";
 
-const ContactForm = ({ onAddContact }) => {
+const ContactForm = ({ history }) => {
    // new user
    const [newContact, setNewContact] = useState({ name: "", email: "" });
+
+   const addContactHander = async (contact) => {
+      try {
+         // add ctratedAt to the new data
+         await addNewContact({
+            ...contact,
+            createdAt: new Date().toISOString(),
+            postId: 10,
+         });
+
+         history.push("/");
+
+         toast.success("contact successfully added");
+      } catch (err) {}
+   };
 
    const submitHandler = (e) => {
       e.preventDefault();
       // send the new data
-      onAddContact(newContact);
+      addContactHander(newContact);
       // clear the inputs
       setNewContact({ name: "", email: "" });
    };

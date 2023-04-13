@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import styles from "./SelectedContact.module.css";
 import { BiX } from "react-icons/bi";
 import { getOneContact } from "../../services/getOneContactService";
+import { Link } from "react-router-dom";
 
-const SelectedContact = ({ id, setId }) => {
+const SelectedContact = ({ match, history }) => {
+   const id = match.params.id;
+
    const [contact, setContact] = useState([]);
 
    useEffect(() => {
@@ -39,34 +42,22 @@ const SelectedContact = ({ id, setId }) => {
    };
 
    return (
-      <>
-         {/* back drop */}
-         <div
-            className={styles.backDrop}
-            onClick={() => {
-               setContact([]);
-               setId(null);
-            }}></div>
-         {/* selected contact card */}
-         <div className={styles.selectedContact}>
-            {/* header */}
-            <div className={styles.selectedContact__header}>
-               <h2>Contact</h2>
-               <button
-                  className="btn btn--item"
-                  onClick={() => {
-                     setContact([]);
-                     setId(null);
-                  }}>
-                  <BiX />
-               </button>
-            </div>
-            {/* body */}
-            <div className={styles.selectedContact__body}>
-               {renderContactBody()}
-            </div>
+      //  selected contact card
+      <div className={styles.selectedContact}>
+         {/* header */}
+         <div className={styles.selectedContact__header}>
+            <h2>Contact</h2>
+            <button
+               className="btn btn--item"
+               onClick={() => history.push("/")}>
+               <BiX />
+            </button>
          </div>
-      </>
+         {/* body */}
+         <div className={styles.selectedContact__body}>
+            {renderContactBody()}
+         </div>
+      </div>
    );
 };
 

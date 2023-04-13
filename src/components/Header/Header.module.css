@@ -15,7 +15,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 20px;
+    padding: 0.5rem;
 }
+
+
+.list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.list__item{
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    color: var(--primary-color);
+    transition: all 0.2s ease-in;
+}
+
+.activeClassName{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+}
+
 
 @media screen and (min-width:768px) {
     .header{
@@ -24,5 +50,16 @@
     
     .nav{
         height: 70px;
+        gap: 30px;
+        padding: 0;
+    }
+
+    .list{
+        gap: 20px;
+    }
+
+    .list__item{
+        font-size: 1.6rem;
+        padding: 0.5rem 1rem;
     }
 }
