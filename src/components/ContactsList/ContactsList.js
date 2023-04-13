@@ -7,7 +7,7 @@ const ContactsList = ({ contacts, onSelect, onRemove }) => {
       if (contacts.length === 0)
          return (
             <div>
-               <h2>there are no contacts yet!</h2>
+               <h2>loading...</h2>
             </div>
          );
 

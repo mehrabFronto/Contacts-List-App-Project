@@ -1,41 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContactForm from "../ContactForm/ContactForm";
 import ContactsList from "../ContactsList/ContactsList";
 import Header from "../Header/Header";
 import SelectedContact from "../SelectedContact/SelectedContact";
 import { toast } from "react-toastify";
+import { getAllContacts } from "../../services/getAllContactsService";
+import { addNewContact } from "../../services/addNewContactService";
+import { deleteContact } from "../../services/deleteContactService";
 
 const ContactsApp = () => {
    const [contacts, setContacts] = useState([]);
 
-   const [selectedContact, setSelectedContact] = useState(undefined);
+   const [selectedContactId, setSelectedContactId] = useState(undefined);
 
-   const selectContactHadnler = (id) => {
-      const contact = contacts.find((c) => c.id === id);
-      setSelectedContact(contact);
-   };
-
-   const addContactHander = (contact) => {
-      // add more datail to the new data
-      const newContact = {
-         ...contact,
-         id: new Date().getTime(),
-         createdAt: new Date().toISOString(),
+   useEffect(() => {
+      // get all contacts on the first load
+      const getContatcs = async () => {
+         try {
+            const { data } = await getAllContacts();
+            setContacts(data);
+         } catch (err) {}
       };
 
-      // set new data
-      setContacts([...contacts, newContact]);
+      getContatcs();
+   }, []);
 
-      toast.success("contact successfully added");
+   const selectContactId = (id) => setSelectedContactId(id);
+
+   const addContactHander = async (contact) => {
+      try {
+         // add ctratedAt to the new data
+         await addNewContact({
+            ...contact,
+            createdAt: new Date().toISOString(),
+         });
+
+         const { data } = await getAllContacts();
+
+         setContacts(data);
+
+         toast.success("contact successfully added");
+      } catch (err) {}
    };
 
-   const removeContactHandler = (id) => {
-      // filter the data
-      const filteredContacts = contacts.filter((c) => c.id !== id);
-      // set new data
-      setContacts(filteredContacts);
+   const removeContactHandler = async (id) => {
+      try {
+         await deleteContact(id);
 
-      toast.success("contact successfully deleted");
+         const { data } = await getAllContacts();
+
+         setContacts(data);
+
+         toast.success("contact successfully deleted");
+      } catch (err) {}
    };
 
    return (
@@ -44,13 +61,13 @@ const ContactsApp = () => {
          <ContactForm onAddContact={addContactHander} />
          <ContactsList
             contacts={contacts}
-            onSelect={selectContactHadnler}
+            onSelect={selectContactId}
             onRemove={removeContactHandler}
          />
-         {selectedContact && (
+         {selectedContactId && (
             <SelectedContact
-               contact={selectedContact}
-               setContact={setSelectedContact}
+               id={selectedContactId}
+               setId={setSelectedContactId}
             />
          )}
       </>
