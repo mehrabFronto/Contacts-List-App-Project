@@ -51,10 +51,10 @@ const ContactsList = () => {
    };
 
    return (
-      <div className="list__container">
+      <>
          <h2>Contacts List :</h2>
-         <div className="list">{renderContacts()}</div>
-      </div>
+         <div>{renderContacts()}</div>
+      </>
    );
 };
 

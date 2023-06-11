@@ -1,84 +1,9 @@
-*,
-*::after,
-*::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-}
-
-:root{
-    --body-color : #ffddca;
-    --primary-color : #2d0605;
-    --secondary-color : #c08552;
-    --box-shadow-color : rgba(0,0,0,0.25);
-}
-
-html{
-    font-size: 62.5%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700&display=swap');
 
 body{
-    font-family: "Fira code";
-    background-color: var(--body-color);
-    color: var(--primary-color);
-    width: 100vw;
-    height: 100vh;
+    font-family: 'Exo 2', sans-serif;
 }
 
-h1{
-    font-size: 2rem;
-}
-
-h2{
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-h3{
-    font-size: 1.6rem;
-}
-
-span{
-    font-size: 1.4rem;
-}
-
-@media screen and (min-width:768px) {
-    h1{
-        font-size: 2.6rem;
-    }
-    
-    h2{
-        font-size: 2.2rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    h3{
-        font-size: 1.8rem;
-    }
-    
-    span{
-        font-size: 1.6rem;
-    }
-}
-
-
-@media screen and (min-width:1024px) {
-    h1{
-        font-size: 3rem;
-    }
-    
-    h2{
-        font-size: 2.4rem;
-        margin-bottom: 2rem;
-    }
-    
-    h3{
-        font-size: 1.8rem;
-    }
-    
-    span{
-        font-size: 1.6rem;
-    }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

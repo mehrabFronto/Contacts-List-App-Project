@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import styles from "./SelectedContact.module.css";
 import { BiX } from "react-icons/bi";
 import { getOneContact } from "../../services/getOneContactService";
-import { Link } from "react-router-dom";
 
 const SelectedContact = ({ match, history }) => {
    const id = match.params.id;
@@ -28,12 +26,12 @@ const SelectedContact = ({ match, history }) => {
       return (
          <>
             {/* name */}
-            <div className={styles.selectedContact__detail}>
+            <div>
                <h3>name :</h3>
                <h3>{contact.name}</h3>
             </div>
             {/* email */}
-            <div className={styles.selectedContact__detail}>
+            <div>
                <h3>email :</h3>
                <h3>{contact.email}</h3>
             </div>
@@ -43,20 +41,16 @@ const SelectedContact = ({ match, history }) => {
 
    return (
       //  selected contact card
-      <div className={styles.selectedContact}>
+      <div>
          {/* header */}
-         <div className={styles.selectedContact__header}>
+         <div>
             <h2>Contact</h2>
-            <button
-               className="btn btn--item"
-               onClick={() => history.push("/")}>
+            <button onClick={() => history.push("/")}>
                <BiX />
             </button>
          </div>
          {/* body */}
-         <div className={styles.selectedContact__body}>
-            {renderContactBody()}
-         </div>
+         <div>{renderContactBody()}</div>
       </div>
    );
 };

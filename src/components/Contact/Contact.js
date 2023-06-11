@@ -3,26 +3,18 @@ import { Link } from "react-router-dom";
 
 const Contact = ({ contact, onRemove }) => {
    return (
-      <div className="item__container">
-         <div
-            className="item"
-            style={{ cursor: "pointer" }}>
+      <div>
+         <div>
             {/* contact detail */}
-            <Link
-               to={`/contacts/${contact.id}`}
-               className="link">
-               <div className="item__detail">
+            <Link to={`/contacts/${contact.id}`}>
+               <div>
                   <h3>{contact.name}</h3>
                   <h3>{contact.email}</h3>
                </div>
             </Link>
             {/* buttons */}
-            <div
-               className="buttons__container"
-               style={{ padding: "0px 20px" }}>
-               <button
-                  className="btn btn--item btn--delete"
-                  onClick={() => onRemove(contact.id)}>
+            <div>
+               <button onClick={() => onRemove(contact.id)}>
                   <BiTrash />
                </button>
             </div>

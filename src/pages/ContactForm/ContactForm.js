@@ -30,34 +30,28 @@ const ContactForm = ({ history }) => {
    };
 
    return (
-      <form
-         className="form"
-         onSubmit={submitHandler}>
+      <form onSubmit={submitHandler}>
          <h2>Add Contact :</h2>
-         <div className="form__body">
-            <div className="form__input__container">
+         <div>
+            <div>
                <label>name :</label>
                {/* contact name input */}
                <input
                   type="text"
                   placeholder="contact name..."
-                  className="form__input"
                   onChange={(e) =>
                      setNewContact({ ...newContact, name: e.target.value })
                   }
                   value={newContact.name}
                />
             </div>
-            <div
-               className="form__input__container"
-               style={{ marginBottom: "10px" }}>
+            <div>
                <label>email :</label>
 
                {/* contact email input */}
                <input
                   type="email"
                   placeholder="contact email..."
-                  className="form__input"
                   onChange={(e) =>
                      setNewContact({ ...newContact, email: e.target.value })
                   }
@@ -65,20 +59,15 @@ const ContactForm = ({ history }) => {
                />
             </div>
             {/* buttons */}
-            <div className="buttons__container">
+            <div>
                {/* cancel btn */}
                <button
-                  className="btn btn--secondary"
                   type="button"
                   onClick={() => setNewContact({ name: "", email: "" })}>
                   Cancel
                </button>
                {/* add btn */}
-               <button
-                  className="btn btn--primary"
-                  type="submit">
-                  Add
-               </button>
+               <button type="submit">Add</button>
             </div>
          </div>
       </form>
