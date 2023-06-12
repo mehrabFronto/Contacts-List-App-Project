@@ -1,4 +1,41 @@
 .title{
+    font-weight: bold;
     color: #16a34a;
-    margin: 80px 0 15px 0;
+    margin: 100px 0 20px 0;
+}
+
+.btn,
+.link{
+    cursor: pointer;
+    width: 100%;
+    white-space: nowrap;
+    outline: none;
+    border: none;
+    background-color: #16a34a;
+    color: #e5e7eb;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight : 500;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: all 0.2s ease-in-out;
+}
+
+
+.btn-menu{
+    width: 45px;
+    height: 45px;
+    box-shadow: none;
+    font-size: 1.8rem;
+}
+
+.link{
+    border: 1px solid #e5e7eb;
+    box-shadow: none;
+}
+
+.activeClassName{
+    border: none;
+    color: #16a34a;
+    background-color: #1e293b;
 }

@@ -8,7 +8,7 @@ import { Route, Switch } from "react-router-dom";
 const App = () => {
    return (
       <div className="w-full flex flex-col">
-         <ToastContainer style={{ fontSize: "1.6rem" }} />
+         <ToastContainer style={{ fontSize: "1rem" }} />
          <Layout>
             <Switch>
                {routes.map((route) => (

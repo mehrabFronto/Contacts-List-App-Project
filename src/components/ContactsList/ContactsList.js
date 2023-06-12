@@ -1,8 +1,7 @@
 import Contact from "../Contact/Contact";
 import { useState, useEffect } from "react";
 import { getAllContacts } from "../../services/getAllContactsService";
-import { toast } from "react-toastify";
-import { deleteContact } from "../../services/deleteContactService";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const ContactsList = () => {
    const [contacts, setContacts] = useState([]);
@@ -19,18 +18,6 @@ const ContactsList = () => {
       getContatcs();
    }, []);
 
-   const removeContactHandler = async (id) => {
-      try {
-         await deleteContact(id);
-
-         const { data } = await getAllContacts();
-
-         setContacts(data);
-
-         toast.success("contact successfully deleted");
-      } catch (err) {}
-   };
-
    // conditional rendering
    const renderContacts = () => {
       // if there is not any contacts => return a message . else return the list of contacts
@@ -42,18 +29,20 @@ const ContactsList = () => {
          );
 
       return contacts.map((c) => (
-         <Contact
-            key={c.id}
-            contact={c}
-            onRemove={removeContactHandler}
-         />
+         <Link
+            to={`/contacts/${c.id}`}
+            key={c.id}>
+            <Contact contact={c} />
+         </Link>
       ));
    };
 
    return (
       <>
-         <h2>Contacts List :</h2>
-         <div>{renderContacts()}</div>
+         <h2 className="title text-xl md:text-2xl">Contacts List :</h2>
+         <div className="w-full md:w-[600px] lg:w-[800px] flex flex-col gap-6 shadow-2xl rounded-md p-4">
+            {renderContacts()}
+         </div>
       </>
    );
 };
