@@ -1,9 +1,19 @@
 # Contacts List
 
-## steps :
+## Contacts-List Page(Home Page):
 
-### 1 : app initialization : add and remove data in a local state .
+![CTA-1](https://github.com/mehrabFronto/Contact-List-App/assets/101546573/196b2e4b-56a7-4372-9a4e-3f7fec920aff)
 
-### 2 : add jsonserver : get a local api and req for add and remove data .
+## New-Contact Page:
 
-### 3 : add react-router-dom : add home and newContact route .
+![CTA-2](https://github.com/mehrabFronto/Contact-List-App/assets/101546573/fe5d6077-9cd1-4ece-b6e6-3d5afb948d1a)
+
+## Selected-Contact Page:
+
+![CTA-3](https://github.com/mehrabFronto/Contact-List-App/assets/101546573/2805e7dd-9418-4603-8a47-f212a64db125)
+
+
+### A SPA app using react-router-dom v5.2.0
+### A rsponsive app using tailwind
+### using json-server for database and simple back-end server and axios for http requests
+
