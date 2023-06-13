@@ -2,7 +2,7 @@
 
 ## Contacts-List Page(Home Page):
 
-![CTA-1](https://github.com/mehrabFronto/Contact-List-App/assets/101546573/196b2e4b-56a7-4372-9a4e-3f7fec920aff)
+![CTA-1](https://github.com/mehrabFronto/Contact-List-App/assets/101546573/ba9d41ce-e799-410b-b3cb-4e0593ce3aeb)
 
 ## New-Contact Page:
 
@@ -13,7 +13,7 @@
 ![CTA-3](https://github.com/mehrabFronto/Contact-List-App/assets/101546573/2805e7dd-9418-4603-8a47-f212a64db125)
 
 
-### A SPA app using react-router-dom v5.2.0
-### A rsponsive app using tailwind
+### A SPA app, using react-router-dom v5.2.0
+### A rsponsive app for mobile, ipad and laptop, using tailwind
 ### using json-server for database and simple back-end server and axios for http requests
 
