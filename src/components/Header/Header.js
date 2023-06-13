@@ -11,11 +11,11 @@ const Header = () => {
             <ul className="w-full md:w-[750px] lg:w-[1000px] xl:w-[1200px] 2xl:w-[1400px] h-full flex flex-col md:flex-row items-center justify-center justify-between text-base md:text-lg lg:text-xl md:pl-0 py-2 px-4">
                {/* mobile navbar */}
                <div className="w-full flex items-center justify-between">
-                  <h1 className="text-xl md:text-2xl lg:text-2xl font-cold">
+                  <h1 className="text-2xl xl:text-3xl font-cold">
                      <Link
-                        style={{ color: "var(--primary-color)" }}
                         to="/"
-                        onClick={() => setIsOpen(false)}>
+                        onClick={() => setIsOpen(false)}
+                        className="lg:hover:tracking-wider transition-all duration-400 ease-out">
                         Contacts-List
                      </Link>
                   </h1>
@@ -43,8 +43,8 @@ const Header = () => {
                <div className="hidden md:flex items-flex gap-5">
                   <li>
                      <NavLink
-                        className="link"
-                        activeClassName="activeClassName"
+                        className="link hover:border-slate-800 hover:text-slate-800"
+                        activeClassName="activeClassName hover:text-green-600"
                         to="/new-contact">
                         New Contact
                      </NavLink>

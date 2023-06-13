@@ -33,7 +33,7 @@ const SelectedContact = ({ match, history }) => {
    };
 
    const renderContactBody = () => {
-      if (!id) return <h2>loading</h2>;
+      if (!id) return <h2 className="text-green-600">loading...</h2>;
 
       return (
          <>
