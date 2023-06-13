@@ -46,7 +46,7 @@ const ContactsList = () => {
       if (contacts.length === 0)
          return (
             <div>
-               <h2>loading...</h2>
+               <h2 className="text-green-600">loading...</h2>
             </div>
          );
 
@@ -64,7 +64,7 @@ const ContactsList = () => {
          <h2 className="title text-xl md:text-2xl">Contacts List :</h2>
          {/* search bar */}
          <div className="w-full md:w-[600px] lg:w-[800px] flex items-center justify-start mb-4">
-            <form className="w-[200px] md:w-[300px] lg:w-[400px] flex items-center bg-transparent border border-gray-200 shadow-xl rounded-md py-1 px-2 ">
+            <form className="w-1/2 flex items-center bg-transparent border border-gray-200 shadow-xl rounded-md py-1 px-2 ">
                <button className="mr-2">
                   <RiSearch2Line className="text-2xl text-gray-200" />
                </button>
@@ -73,7 +73,7 @@ const ContactsList = () => {
                   value={searchValue}
                   onChange={searchHandler}
                   placeholder="search name, email..."
-                  className="w-full bg-transparent text-green-600 rounded-md p-2 outline-none"
+                  className="w-full bg-transparent text-green-600 rounded-md p-2 outline-none truncate"
                />
             </form>
          </div>
